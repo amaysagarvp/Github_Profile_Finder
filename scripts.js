@@ -31,6 +31,7 @@ async function fetchProfile(username) {
     }
 }
 function displayProfile(data) {
+
     profile.innerHTML = "";
     profile.innerHTML =`
     <h2>${data.login}
@@ -38,6 +39,6 @@ function displayProfile(data) {
     <p>${data.followers}
     <p>${data.following}
     <p>${data.public_repos}
-    <p>${data.avatar_url}
+   <img src="${data.avatar_url}">
     `
 }
