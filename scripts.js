@@ -26,12 +26,17 @@ async function fetchProfile(username) {
     } catch {
         showError("Network Error");
     }
-    function showError(message) {
-        profile.innerHTML = `<h2>${message}</h2>`
-    }
+    
 }
+function showError(message) {
+        profile.innerHTML = `<h2>${message}</h2>`
+        return;
+    }
 function displayProfile(data) {
-
+    if(data.message ==="Not Found"){
+        profile.innerHTML = `"<h2>Not Found</h2>"`;
+        return;
+    }
     profile.innerHTML = "";
     profile.innerHTML =`
     <h2>${data.login}
@@ -39,6 +44,5 @@ function displayProfile(data) {
     <p>${data.followers}
     <p>${data.following}
     <p>${data.public_repos}
-   <img src="${data.avatar_url}">
-    `
+   <img src="${data.avatar_url}"> `;
 }
